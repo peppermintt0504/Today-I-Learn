@@ -1,2 +1,6 @@
 # Today-I-Learn
-🐱‍👤Today I Learned. 그날 그날 모든 활동들을 정리
+
+## Java
+- [Rambda](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Lambda.md)
+- [Stream](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Stream.md)
+- [Stream의 연산](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Stream%EC%9D%98%20%EC%97%B0%EC%82%B0)
