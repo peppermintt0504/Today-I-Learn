@@ -16,7 +16,7 @@
 
 스트림 연산에서 한 가지 중요한 점은 `최종 연산이 수행되기 전까지는 중간 연산이 수행되지 않는다`는 점이다.
 
-```java
+```
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -61,7 +61,7 @@ Stream<T> Collection.stream()
 
 예를들어 List로부터 스트림을 생성하는 코드는 다음과 같다.
 
-```java
+```
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -97,7 +97,7 @@ Stream<T> limit(long maxSize)
 
 예를들어 10개의 요소를 가진 스트림에 `skip(3)`과 `limit(5)`을 순서대로 적용하면 4번쨰 부터 5개의 요소를 가진 스트림이 반환된다.
 
-```java
+```
 public class Test2 {
     public static void main(String[] args) {
         IntStream intStream = IntStream.rangeClosed(1, 10);
@@ -121,7 +121,7 @@ Stream<T> distinct()
 
 distinct()의 사용방법은 간단하다.
 
-```java
+```
 import java.util.stream.IntStream;
 
 public class Test2 {
@@ -136,7 +136,7 @@ public class Test2 {
 
 filter()는 매게변수로 Predicate를 필요로 하는데, 아래와 같이 연산결과가 boolean인 람다식을 사용해도 된다.
 
-```java
+```
 import java.util.stream.IntStream;
 
 public class Test2 {
@@ -159,7 +159,7 @@ Stream<T> sorted<Comparator<? super T> comparator)
 sorted는 지정된 Comparator로 스트림을 정렬하는데, Comparator대신 int값을 반환하는 람다식을 사용하는 것도 가능하다. Comparator를 지정하지 않으면
 스트림 요소의 기본 정렬 기준(Comparable)으로 정렬한다. 단, 스트림의 요소가 Comparable을 구현한 클래스가 아니면 예외가 발생한다.
 
-```java
+```
 import java.util.stream.Stream;
 
 public class Test2 {
@@ -187,7 +187,7 @@ Stream<R> map(Function<? super T, ? extends R> mapper)
 
 예를 들어 File의 스트림에서 파일의 이름만 뽑아서 출력하고 싶을 때, 아래와 같이 `map()`을 이용하면 File객체에서 파일의 이름(String)만 간단히 뽑아낼 수 있다.
 
-```java
+```
 import java.io.File;
 import java.util.stream.Stream;
 
@@ -209,7 +209,7 @@ Ex1.txt
 
 그리고, `map()`도 `filter()`처럼 하나의 스트림에 여러 번 적용할 수 있다. 
 
-```java
+```
 import java.io.File;
 import java.util.stream.Stream;
 
