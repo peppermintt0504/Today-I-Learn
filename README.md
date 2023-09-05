@@ -7,4 +7,4 @@
 ### Map
 - [Hashmap이란?](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Map/Hashmap%EC%9D%B4%EB%9E%80%3F.md)
 ### Queue
-- [ArrayDequeue란?.md](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Queue/ArrayDequeue%20%EB%9E%80%3F.md)
+- [ArrayDequeue란?](https://github.com/peppermintt0504/Today-I-Learn/blob/main/Java/Queue/ArrayDequeue%20%EB%9E%80%3F.md)
