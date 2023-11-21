@@ -85,7 +85,52 @@ class MJ extends MMJ {
 
 - final method : 메소드가 오버라이드되지 못하도록 만듬
 
+
+### Final을 사용하는 이유
+#### 1. 개발 의도
+- final 변수 : 해당 변수가 생성자나 대입 연산자를 통해 한번만 초기화 가능함을 의미합니다. 상수를 만들 때 주로 응용합니다.
+
+- final 메소드 : 해당 메소드를 오버라이드 하지 못하게 하거나 숨길 수 없음을 의미합니다.
+  - 상속 되면 절대 안 되는 경우에 사용합니다.
+  - ISP(Interface Segregation Principle)에 따라 인터페이스를 선언한 경우 final을 사용하는 것이 한정적입니다.
+    - Inteface에서 정의한 변수는 final 선언과 같이 재정의가 불가능하다.
+    - Inteface에서 Method를 final로 선언할 수 없다.
+    - 따라서 Interface에서 상속받은 구현체의 메소드를 final로 선언한여 재정의를 막을 수는 있습니다.
+   
+- final 클래스 : 해당 클래스를 상속할 수 없음을 의미합니다.
+  - 대표적인 자바 표준 라이브러리 클래스로 java.lang.System, java.lang.String 등이 있습니다.
  
+
+##### 클래스 및 생성자 의존성에 대한 final
+```
+public class Position {
+  private final int value;
+
+  Position(final int value) {
+          this.value = value;
+      }
+
+  Position move() {
+        return new Position(value + 1);        //  위치를 1칸 이동 하는 경우
+    }
+}
+```
+
+위와 같은 코드는 Position의 value가 필요한 경우 move() 메서드를 통해 새로운 인스턴스를 반환합니다. 이는 SRP(Single Responsibility Principle)를 준수하여 생성자를 통해 멤버 변수 값을 설정하고, 생성자를 호출하는 일관성 있는 메소드를 제공하게 됩니다.
+
+#### 2. 코드 가독성
+```
+final int MAX_COUNT = 100;
+
+for (int i = 0; i < MAX_COUNT; i++) { ... }
+```
+
+자바의 final은 컴파일러에 의해 타입 검사와 이름의 범위 처리 및 프로그램 전체에서 이름으로 대상을 가리킬 수 있고 접근자(private이나 public이냐)도 구분할 수 있다. 이러한 상수 이름을 컴파일 시간 상수(compile time constant)라고 한다.
+
+
+final은 변경할 수 없는 변수 또는 컴파일 시간 상수 두 가지 경우로 사용된다. 그리고 두 경우 모두 코드의 가독성과 효율성이 동시에 좋아진다. 프로그래밍 언어에서 가독성과 효율성은 서로 트레이드오프 관계인 경우가 많은데 두 가지가 동시에 좋아지는 것은 두 마리 토끼를 잡는 것과 같다. 그러므로 프로그래밍에서 아주 바람직한 기능이라고 할 수 있고 가능한 한 자주 써주어야 한다.
+
+
 
 ### 주의할 점
 final 변수는 초기화 이후 값 변경이 발생하지 않도록 만든다.
